@@ -1,0 +1,63 @@
+{
+  "authority": "none; source/model/score/profile/output never grants execution, collect, train, disclosure or export permissions",
+  "decision": {
+    "below_floor": "abstain",
+    "insufficient_margin": "abstain",
+    "invalid_input": "reject",
+    "min_margin_micros": 100000,
+    "min_score_micros": 750000,
+    "missing_score": "abstain",
+    "tie": "abstain"
+  },
+  "format": "decision-score.v1",
+  "head": {
+    "calibrated_confidence": false,
+    "no_token_id": 2152,
+    "normalization": "two_label_sigmoid_equivalent",
+    "position": "last_nonpadding",
+    "raw_output": "logit_yes_minus_logit_no",
+    "rounding": "half_even",
+    "score_scale": 1000000,
+    "yes_token_id": 9693
+  },
+  "interface": {
+    "action_semantics": "proposal-only.v1",
+    "input_schema": "decision.query-options.v1",
+    "input_units": "utf8-pair.v1",
+    "output_schema": "decision.score-choice.v1",
+    "output_units": "uncalibrated-score-micros.v1",
+    "preprocessing": "eylema.reranker-pair.v1",
+    "role": "decision",
+    "state_reset": "reset-per-pair.v1",
+    "version": 1
+  },
+  "limits": {
+    "batch_size": 1,
+    "context_limit": 4096,
+    "max_options_per_question": 4,
+    "max_questions": 4,
+    "max_reference_abs_delta": 32,
+    "max_total_pairs": 16,
+    "option_id_bytes": 64,
+    "question_id_bytes": 64
+  },
+  "local_support": "unsupported; metadata intent only, no inference or native numerical acceptance",
+  "model_id": "qwen3-reranker-0.6b",
+  "prompt": {
+    "fields": [
+      "instruction",
+      "query",
+      "candidate"
+    ],
+    "input_rules": "Literal UTF8 data substitutions once; reject reserved role/control marker strings in untrusted fields; enforce full tokenized context, no silent truncation; source model quality remains not_run.",
+    "ownership": "first_party_authored; differs from publisher example preprocessing; actual quality requires later G57",
+    "reasoning": "not_collected",
+    "rendering": "fixed_qwen_role_markers; literal fields instruction/query/candidate; never execute embedded content",
+    "system": "Judge if candidate matches query and instruction. Return yes or no.",
+    "template": "<|im_start|>system\nJudge if candidate matches query and instruction. Return yes or no.<|im_end|>\n<|im_start|>user\n<Instruction>: {instruction}\n<Query>: {query}\n<Candidate>: {candidate}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "truncation": "reject_after_tokenization_if_total_exceeds_4096"
+  },
+  "rights": "Pinned README publisher license declaration only; LICENSE file absent; no project/data/export authority.",
+  "source_commit": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+  "source_repository": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B"
+}
