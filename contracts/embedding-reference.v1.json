@@ -1,0 +1,683 @@
+{
+  "cases": [
+    {
+      "documents": [
+        {
+          "id": "a",
+          "mask": [
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "3",
+                "4"
+              ],
+              "tail_zeros": 1022
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "mask": [
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "-3",
+                "4"
+              ],
+              "tail_zeros": 1022
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "mask": [
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "-3",
+                "-4"
+              ],
+              "tail_zeros": 1022
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "document_vectors": [
+          {
+            "id": "a",
+            "vector": {
+              "head": [
+                "0.600000000000000000000000",
+                "0.800000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          },
+          {
+            "id": "b",
+            "vector": {
+              "head": [
+                "-0.600000000000000000000000",
+                "0.800000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          },
+          {
+            "id": "c",
+            "vector": {
+              "head": [
+                "-0.600000000000000000000000",
+                "-0.800000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          }
+        ],
+        "query_vectors": [
+          {
+            "id": "q-en",
+            "vector": {
+              "head": [
+                "0.600000000000000000000000",
+                "0.800000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          },
+          {
+            "id": "q-tr",
+            "vector": {
+              "head": [
+                "-0.600000000000000000000000",
+                "0.800000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "groups": [
+              [
+                "a"
+              ],
+              [
+                "b"
+              ],
+              [
+                "c"
+              ]
+            ],
+            "query_id": "q-en",
+            "scores": [
+              {
+                "cosine": "1.000000000000000000000000",
+                "document_id": "a",
+                "score_micros": 1000000
+              },
+              {
+                "cosine": "0.280000000000000000000000",
+                "document_id": "b",
+                "score_micros": 280000
+              },
+              {
+                "cosine": "-1.000000000000000000000000",
+                "document_id": "c",
+                "score_micros": -1000000
+              }
+            ],
+            "tied": false
+          },
+          {
+            "groups": [
+              [
+                "b"
+              ],
+              [
+                "a"
+              ],
+              [
+                "c"
+              ]
+            ],
+            "query_id": "q-tr",
+            "scores": [
+              {
+                "cosine": "1.000000000000000000000000",
+                "document_id": "b",
+                "score_micros": 1000000
+              },
+              {
+                "cosine": "0.280000000000000000000000",
+                "document_id": "a",
+                "score_micros": 280000
+              },
+              {
+                "cosine": "-0.280000000000000000000000",
+                "document_id": "c",
+                "score_micros": -280000
+              }
+            ],
+            "tied": false
+          }
+        ]
+      },
+      "id": "mixed-padding-en-tr-labels",
+      "queries": [
+        {
+          "id": "q-en",
+          "mask": [
+            1,
+            1,
+            0
+          ],
+          "positions": [
+            {
+              "head": [
+                "9",
+                "9"
+              ],
+              "tail_zeros": 1022
+            },
+            {
+              "head": [
+                "3",
+                "4"
+              ],
+              "tail_zeros": 1022
+            },
+            {
+              "head": [
+                "90",
+                "90"
+              ],
+              "tail_zeros": 1022
+            }
+          ]
+        },
+        {
+          "id": "q-tr",
+          "mask": [
+            0,
+            1,
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "99",
+                "99"
+              ],
+              "tail_zeros": 1022
+            },
+            {
+              "head": [
+                "0",
+                "5"
+              ],
+              "tail_zeros": 1022
+            },
+            {
+              "head": [
+                "-3",
+                "4"
+              ],
+              "tail_zeros": 1022
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "documents": [
+        {
+          "id": "z",
+          "mask": [
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "2",
+                "0"
+              ],
+              "tail_zeros": 1022
+            }
+          ]
+        },
+        {
+          "id": "a",
+          "mask": [
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "1",
+                "0"
+              ],
+              "tail_zeros": 1022
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "document_vectors": [
+          {
+            "id": "z",
+            "vector": {
+              "head": [
+                "1.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          },
+          {
+            "id": "a",
+            "vector": {
+              "head": [
+                "1.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          }
+        ],
+        "query_vectors": [
+          {
+            "id": "q",
+            "vector": {
+              "head": [
+                "1.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "groups": [
+              [
+                "a",
+                "z"
+              ]
+            ],
+            "query_id": "q",
+            "scores": [
+              {
+                "cosine": "1.000000000000000000000000",
+                "document_id": "a",
+                "score_micros": 1000000
+              },
+              {
+                "cosine": "1.000000000000000000000000",
+                "document_id": "z",
+                "score_micros": 1000000
+              }
+            ],
+            "tied": true
+          }
+        ]
+      },
+      "id": "equal-score-group",
+      "queries": [
+        {
+          "id": "q",
+          "mask": [
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "1",
+                "0"
+              ],
+              "tail_zeros": 1022
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "documents": [
+        {
+          "id": "orthogonal",
+          "mask": [
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "0",
+                "2"
+              ],
+              "tail_zeros": 1022
+            }
+          ]
+        },
+        {
+          "id": "opposite",
+          "mask": [
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "-1",
+                "0"
+              ],
+              "tail_zeros": 1022
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "document_vectors": [
+          {
+            "id": "orthogonal",
+            "vector": {
+              "head": [
+                "0.000000000000000000000000",
+                "1.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          },
+          {
+            "id": "opposite",
+            "vector": {
+              "head": [
+                "-1.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          }
+        ],
+        "query_vectors": [
+          {
+            "id": "q",
+            "vector": {
+              "head": [
+                "1.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "groups": [
+              [
+                "orthogonal"
+              ],
+              [
+                "opposite"
+              ]
+            ],
+            "query_id": "q",
+            "scores": [
+              {
+                "cosine": "0.000000000000000000000000",
+                "document_id": "orthogonal",
+                "score_micros": 0
+              },
+              {
+                "cosine": "-1.000000000000000000000000",
+                "document_id": "opposite",
+                "score_micros": -1000000
+              }
+            ],
+            "tied": false
+          }
+        ]
+      },
+      "id": "orthogonal-negative",
+      "queries": [
+        {
+          "id": "q",
+          "mask": [
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "1",
+                "0"
+              ],
+              "tail_zeros": 1022
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "documents": [
+        {
+          "id": "d",
+          "mask": [
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "1"
+              ],
+              "tail_zeros": 1023
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "document_vectors": [
+          {
+            "id": "d",
+            "vector": {
+              "head": [
+                "1.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          }
+        ],
+        "query_vectors": [
+          {
+            "id": "q",
+            "vector": {
+              "head": [
+                "1.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "groups": [
+              [
+                "d"
+              ]
+            ],
+            "query_id": "q",
+            "scores": [
+              {
+                "cosine": "1.000000000000000000000000",
+                "document_id": "d",
+                "score_micros": 1000000
+              }
+            ],
+            "tied": false
+          }
+        ]
+      },
+      "id": "small-finite-valid",
+      "queries": [
+        {
+          "id": "q",
+          "mask": [
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "0.00000001"
+              ],
+              "tail_zeros": 1023
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "documents": [
+        {
+          "id": "d",
+          "mask": [
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "3",
+                "4"
+              ],
+              "tail_zeros": 1022
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "document_vectors": [
+          {
+            "id": "d",
+            "vector": {
+              "head": [
+                "0.600000000000000000000000",
+                "0.800000000000000000000000",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          }
+        ],
+        "query_vectors": [
+          {
+            "id": "q",
+            "vector": {
+              "head": [
+                "0.447213595499957939281835",
+                "0.894427190999915878563669",
+                "0.000000000000000000000000",
+                "0.000000000000000000000000"
+              ],
+              "tail_zeros": 1020
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "groups": [
+              [
+                "d"
+              ]
+            ],
+            "query_id": "q",
+            "scores": [
+              {
+                "cosine": "0.983869910099907466420036",
+                "document_id": "d",
+                "score_micros": 983870
+              }
+            ],
+            "tied": false
+          }
+        ]
+      },
+      "id": "irrational-normalization",
+      "queries": [
+        {
+          "id": "q",
+          "mask": [
+            1
+          ],
+          "positions": [
+            {
+              "head": [
+                "1",
+                "2"
+              ],
+              "tail_zeros": 1022
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "compact_expansion": "head0..4 scalar strings plus exact tail_zeros to1024; full arrays consumed by development oracle",
+  "dimensions": 1024,
+  "format": "embedding-reference.v1",
+  "provenance": "Own synthetic hidden states and manually fixed ranking/tie expectations; independent Decimal80 direct sqrt scalar oracle, not model predictions",
+  "quality": "UTF8/prefix and synthetic vector behavior only; no actual EN/TR semantics/quality/calibration/native inference evidence",
+  "text_fixtures": [
+    {
+      "expected": "Instruct: Given a web search query, retrieve relevant passages that answer the query\nQuery:Where is Ankara?",
+      "mode": "query",
+      "text": "Where is Ankara?"
+    },
+    {
+      "expected": "Instruct: Given a web search query, retrieve relevant passages that answer the query\nQuery:Ankara nerede?",
+      "mode": "query",
+      "text": "Ankara nerede?"
+    },
+    {
+      "expected": "Ankara is in Türkiye.",
+      "mode": "document",
+      "text": "Ankara is in Türkiye."
+    },
+    {
+      "expected": "Ankara Türkiye’dedir.",
+      "mode": "document",
+      "text": "Ankara Türkiye’dedir."
+    }
+  ]
+}

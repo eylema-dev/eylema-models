@@ -5,8 +5,8 @@
     {
       "en": "README.md",
       "tr": "README.tr.md",
-      "en_sha256": "4ad19f3107d90b9b07b77ab3f8641289eac632a724aa753d395b15c492216557",
-      "tr_sha256": "ecca73e49966b3a5afa9565c05551dad87b3e8653573f3a8d45826b65f7414a6"
+      "en_sha256": "bfb3bca0d7d87ff4e8b1021520a3768704882e87efc91f7c7d4f2c665073ead5",
+      "tr_sha256": "a16999d2685975380b09a096d93ad96ed8b98bc60958592bea1e24223834679d"
     },
     {
       "en": "CONTRIBUTING.md",
@@ -25,6 +25,12 @@
       "tr": "docs/tr/decision-score-profile.md",
       "en_sha256": "24d43b7e88627edf38cd2a0a4baa9cc224063d363ba768ea29c37000f6166457",
       "tr_sha256": "76e6b340139ade8c9d6d9c52d52e3c37ddf53b424eb9985e9e626f36f6d6f99a"
+    },
+    {
+      "en": "docs/en/embedding-profile.md",
+      "tr": "docs/tr/embedding-profile.md",
+      "en_sha256": "0e96c2894210ecec3474b7b36fb6cc72670da7f6cb745628f28928bc30e02ef4",
+      "tr_sha256": "c90056c3f1ae356ca5503477348063c3d6eb785469160338c9673a05ff7d7a5d"
     }
   ],
   "documents": []

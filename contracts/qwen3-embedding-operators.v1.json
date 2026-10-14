@@ -1,0 +1,117 @@
+{
+  "declared_parameters": {
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ],
+    "attention_bias": false,
+    "attention_dropout": 0.0,
+    "bos_token_id": 151643,
+    "eos_token_id": 151643,
+    "head_dim": 128,
+    "hidden_act": "silu",
+    "hidden_size": 1024,
+    "initializer_range": 0.02,
+    "intermediate_size": 3072,
+    "max_position_embeddings": 32768,
+    "max_window_layers": 28,
+    "model_type": "qwen3",
+    "num_attention_heads": 16,
+    "num_hidden_layers": 28,
+    "num_key_value_heads": 8,
+    "rms_norm_eps": 1e-06,
+    "rope_scaling": null,
+    "rope_theta": 1000000,
+    "sliding_window": null,
+    "tie_word_embeddings": true,
+    "torch_dtype": "bfloat16",
+    "transformers_version": "4.51.3",
+    "use_cache": true,
+    "use_sliding_window": false,
+    "vocab_size": 151669
+  },
+  "embedding_source_components": {
+    "modules": "modules.json",
+    "pooling": "pooling-config.json",
+    "prefix": "config_sentence_transformers.json"
+  },
+  "evidence_boundary": "Static metadata and first-party synthetic arithmetic only. No tokenizer/model/weights/numerical kernel/GPU/native inference/quality/performance/training executed.",
+  "format": "qwen3-embedding-operators.v1",
+  "operators": [
+    {
+      "id": "qwen3.embedding_gather.v1",
+      "semantics": "Integer token IDs select rows from the tied embedding table; reject IDs outside vocabulary."
+    },
+    {
+      "id": "qwen3.linear_no_bias.v1",
+      "semantics": "Q/K/V/O, gate/up/down and tied-logits projections use explicitly shaped matrix multiplication without bias."
+    },
+    {
+      "id": "qwen3.rmsnorm_fp32.v1",
+      "semantics": "Accumulate mean squared activations and reciprocal square root with epsilon1e-6 in float32; restore input dtype before learned scale. Q/K normalization is per head."
+    },
+    {
+      "id": "qwen3.silu.v1",
+      "semantics": "Elementwise x times sigmoid(x)."
+    },
+    {
+      "id": "qwen3.swiglu.v1",
+      "semantics": "Multiply activated gate projection by the independent up projection, then down-project."
+    },
+    {
+      "id": "qwen3.residual_add.v1",
+      "semantics": "Add attention output and MLP output to their respective retained residuals."
+    },
+    {
+      "id": "qwen3.rope_default.v1",
+      "semantics": "Use theta1000000 default inverse frequencies, float32 positions/frequency product, cosine/sine and split-half rotation; no scaled/dynamic RoPE profile."
+    },
+    {
+      "id": "qwen3.reshape_transpose.v1",
+      "semantics": "Preserve named batch, token, head and head-dimension axes; Q projection width2048, KV projection width1024."
+    },
+    {
+      "id": "qwen3.grouped_kv_repeat.v1",
+      "semantics": "Repeat each of8KV heads for its2query heads; preserve token order."
+    },
+    {
+      "id": "qwen3.causal_mask.v1",
+      "semantics": "Mask future positions before normalization; no sliding-window profile, batch1/single unpadded sequence."
+    },
+    {
+      "id": "qwen3.scaled_attention.v1",
+      "semantics": "Multiply Q by transposed K and scale by inverse sqrt(head_dim128); multiply normalized probabilities by V."
+    },
+    {
+      "id": "qwen3.softmax_fp32.v1",
+      "semantics": "Normalize attention scores in float32 along the key-token axis and cast probabilities to query dtype."
+    },
+    {
+      "id": "qwen3.kv_cache_append.v1",
+      "semantics": "Append positional K/V for one sequence; reset on model/role/step changes, no implicit state transfer."
+    },
+    {
+      "id": "qwen3.dtype_and_layout.v1",
+      "semantics": "Declared bfloat16 safetensors inputs with explicit float32 normalization/position arithmetic; physical layout/loading/conversion remain G28/G23."
+    },
+    {
+      "id": "embedding.last_valid_pool.v1",
+      "semantics": "Select final valid position in contiguous left/right binary mask,1024hidden coordinates; at least one nonpadding position; no mean/first pooling."
+    },
+    {
+      "id": "embedding.l2_unit_1024.v1",
+      "semantics": "Normalize finite1024vector by L2norm; reject zero/norm<=1e-12 in this declared profile. Not calibrated probability or action authority."
+    },
+    {
+      "id": "embedding.cosine_rank_micros.v1",
+      "semantics": "Synthetic retrieval-reference dot of normalized query/document vectors, [-1,1] half-even1,000,000micros; complete scores per query, equal micros grouped and IDs sorted, no forced single action. Native index/RAG remains later."
+    }
+  ],
+  "reference_commit": "0720e206c6ba28887e4d60ef60a6a089f6c1cc76",
+  "reference_files_sha256": {
+    "modeling_qwen3.py": "704c914530530a1acb0b443add1f520404e3ac2c28c0ab7e16f80f86cfe8ccb2",
+    "modeling_rope_utils.py": "c28b3e88edca8fdb5497e5c36091bf753db49bd94ace33a84e9f9c61cbf66032"
+  },
+  "reference_repository": "https://github.com/huggingface/transformers",
+  "reference_scope": "Unchanged owned G27 backbone descriptions/reference source only; config declares Transformers4.51.3 while prior read-only pinned backbone reference4.51.0. Embedding head/pooling/norm descriptions first-party; no installed/copied/executed Transformers/SentenceTransformers engine.",
+  "source_model_commit": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3"
+}
