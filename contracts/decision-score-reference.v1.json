@@ -1,0 +1,298 @@
+{
+  "calibrated_confidence": false,
+  "cases": [
+    {
+      "expected": [
+        {
+          "choice": "best",
+          "question_id": "q1",
+          "reason": "chosen",
+          "scores": [
+            {
+              "option_id": "best",
+              "probability": "0.880797077977882444059729",
+              "raw_delta": "2",
+              "score_micros": 880797,
+              "yes_no": true
+            },
+            {
+              "option_id": "other",
+              "probability": "0.119202922022117555940271",
+              "raw_delta": "-2",
+              "score_micros": 119203,
+              "yes_no": false
+            }
+          ],
+          "status": "chosen"
+        },
+        {
+          "choice": null,
+          "question_id": "q2",
+          "reason": "below_floor",
+          "scores": [
+            {
+              "option_id": "maybe",
+              "probability": "0.500000000000000000000000",
+              "raw_delta": "0",
+              "score_micros": 500000,
+              "yes_no": true
+            },
+            {
+              "option_id": "other",
+              "probability": "0.119202922022117555940271",
+              "raw_delta": "-2",
+              "score_micros": 119203,
+              "yes_no": false
+            }
+          ],
+          "status": "abstain"
+        }
+      ],
+      "id": "multiple_questions",
+      "questions": [
+        {
+          "id": "q1",
+          "options": [
+            {
+              "delta": "2",
+              "id": "best"
+            },
+            {
+              "delta": "-2",
+              "id": "other"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "options": [
+            {
+              "delta": "0",
+              "id": "maybe"
+            },
+            {
+              "delta": "-2",
+              "id": "other"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expected": [
+        {
+          "choice": null,
+          "question_id": "tie",
+          "reason": "tie",
+          "scores": [
+            {
+              "option_id": "a",
+              "probability": "0.880797077977882444059729",
+              "raw_delta": "2",
+              "score_micros": 880797,
+              "yes_no": true
+            },
+            {
+              "option_id": "b",
+              "probability": "0.880797077977882444059729",
+              "raw_delta": "2",
+              "score_micros": 880797,
+              "yes_no": true
+            }
+          ],
+          "status": "abstain"
+        }
+      ],
+      "id": "equal_scores",
+      "questions": [
+        {
+          "id": "tie",
+          "options": [
+            {
+              "delta": "2",
+              "id": "a"
+            },
+            {
+              "delta": "2",
+              "id": "b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expected": [
+        {
+          "choice": null,
+          "question_id": "margin",
+          "reason": "insufficient_margin",
+          "scores": [
+            {
+              "option_id": "a",
+              "probability": "0.880797077977882444059729",
+              "raw_delta": "2",
+              "score_micros": 880797,
+              "yes_no": true
+            },
+            {
+              "option_id": "b",
+              "probability": "0.858148935099512210405722",
+              "raw_delta": "1.8",
+              "score_micros": 858149,
+              "yes_no": true
+            }
+          ],
+          "status": "abstain"
+        }
+      ],
+      "id": "small_margin",
+      "questions": [
+        {
+          "id": "margin",
+          "options": [
+            {
+              "delta": "2",
+              "id": "a"
+            },
+            {
+              "delta": "1.8",
+              "id": "b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expected": [
+        {
+          "choice": null,
+          "question_id": "partial",
+          "reason": "missing_score",
+          "scores": [
+            {
+              "option_id": "known",
+              "probability": "0.880797077977882444059729",
+              "raw_delta": "2",
+              "score_micros": 880797,
+              "yes_no": true
+            },
+            {
+              "option_id": "unknown",
+              "probability": null,
+              "raw_delta": null,
+              "score_micros": null,
+              "yes_no": null
+            }
+          ],
+          "status": "abstain"
+        }
+      ],
+      "id": "missing_score",
+      "questions": [
+        {
+          "id": "partial",
+          "options": [
+            {
+              "delta": "2",
+              "id": "known"
+            },
+            {
+              "delta": null,
+              "id": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expected": [
+        {
+          "choice": "yes",
+          "question_id": "extreme",
+          "reason": "chosen",
+          "scores": [
+            {
+              "option_id": "yes",
+              "probability": "0.999999999999987335834451",
+              "raw_delta": "32",
+              "score_micros": 1000000,
+              "yes_no": true
+            },
+            {
+              "option_id": "no",
+              "probability": "0.000000000000012664165549",
+              "raw_delta": "-32",
+              "score_micros": 0,
+              "yes_no": false
+            }
+          ],
+          "status": "chosen"
+        }
+      ],
+      "id": "bounded_extremes",
+      "questions": [
+        {
+          "id": "extreme",
+          "options": [
+            {
+              "delta": "32",
+              "id": "yes"
+            },
+            {
+              "delta": "-32",
+              "id": "no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expected": [
+        {
+          "choice": "positive",
+          "question_id": "published",
+          "reason": "chosen",
+          "scores": [
+            {
+              "option_id": "positive",
+              "probability": "0.999512142877217734043390",
+              "raw_delta": "7.625",
+              "score_micros": 999512,
+              "yes_no": true
+            },
+            {
+              "option_id": "negative",
+              "probability": "0.000011478768127080350191",
+              "raw_delta": "-11.375",
+              "score_micros": 11,
+              "yes_no": false
+            }
+          ],
+          "status": "chosen"
+        }
+      ],
+      "id": "publisher_delta_numeric_conversion",
+      "questions": [
+        {
+          "id": "published",
+          "options": [
+            {
+              "delta": "7.625",
+              "id": "positive"
+            },
+            {
+              "delta": "-11.375",
+              "id": "negative"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "format": "decision-score-reference.v1",
+  "model_execution": "not_run",
+  "model_source_commit": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+  "oracle": "Independent Python standard-library Decimal80 scalar sigmoid and manually specified choice/abstain outcomes; development reference only, not production or model execution.",
+  "probability_abs_tolerance_for_later_fp32": "0.000001",
+  "source_example_kind": "Publisher README raw deltas7.625/-11.375 are source-reported, not reproduced. Normalized values here are synthetic arithmetic conversions and do not predict this authored prompt."
+}

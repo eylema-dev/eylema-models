@@ -1,0 +1,101 @@
+{
+  "declared_parameters": {
+    "attention_dropout": 0,
+    "attention_implementation": "eager",
+    "batch_size": 1,
+    "context_limit": 4096,
+    "generation": "not_used; positive metadata reserved cap only",
+    "head_dim": 128,
+    "max_new_tokens": 1,
+    "quantization": "none",
+    "rms_norm_eps": 1e-06,
+    "rope_theta": 1000000,
+    "training": false
+  },
+  "evidence_boundary": "Authored operator specification from pinned reference/config audit; not numerical, tokenizer, format-loader or model execution acceptance.",
+  "format": "qwen3-reranker-operators.v1",
+  "operators": [
+    {
+      "id": "qwen3.embedding_gather.v1",
+      "semantics": "Integer token IDs select rows from the tied embedding table; reject IDs outside vocabulary."
+    },
+    {
+      "id": "qwen3.linear_no_bias.v1",
+      "semantics": "Q/K/V/O, gate/up/down and tied-logits projections use explicitly shaped matrix multiplication without bias."
+    },
+    {
+      "id": "qwen3.rmsnorm_fp32.v1",
+      "semantics": "Accumulate mean squared activations and reciprocal square root with epsilon1e-6 in float32; restore input dtype before learned scale. Q/K normalization is per head."
+    },
+    {
+      "id": "qwen3.silu.v1",
+      "semantics": "Elementwise x times sigmoid(x)."
+    },
+    {
+      "id": "qwen3.swiglu.v1",
+      "semantics": "Multiply activated gate projection by the independent up projection, then down-project."
+    },
+    {
+      "id": "qwen3.residual_add.v1",
+      "semantics": "Add attention output and MLP output to their respective retained residuals."
+    },
+    {
+      "id": "qwen3.rope_default.v1",
+      "semantics": "Use theta1000000 default inverse frequencies, float32 positions/frequency product, cosine/sine and split-half rotation; no scaled/dynamic RoPE profile."
+    },
+    {
+      "id": "qwen3.reshape_transpose.v1",
+      "semantics": "Preserve named batch, token, head and head-dimension axes; Q projection width2048, KV projection width1024."
+    },
+    {
+      "id": "qwen3.grouped_kv_repeat.v1",
+      "semantics": "Repeat each of8KV heads for its2query heads; preserve token order."
+    },
+    {
+      "id": "qwen3.causal_mask.v1",
+      "semantics": "Mask future positions before normalization; no sliding-window profile, batch1/single unpadded sequence."
+    },
+    {
+      "id": "qwen3.scaled_attention.v1",
+      "semantics": "Multiply Q by transposed K and scale by inverse sqrt(head_dim128); multiply normalized probabilities by V."
+    },
+    {
+      "id": "qwen3.softmax_fp32.v1",
+      "semantics": "Normalize attention scores in float32 along the key-token axis and cast probabilities to query dtype."
+    },
+    {
+      "id": "qwen3.kv_cache_append.v1",
+      "semantics": "Append positional K/V for one sequence; reset on model/role/step changes, no implicit state transfer."
+    },
+    {
+      "id": "qwen3.tied_logits.v1",
+      "semantics": "Project final normalized hidden states with transposed input embedding weights; tie_word_embeddings=true."
+    },
+    {
+      "id": "qwen3.dtype_and_layout.v1",
+      "semantics": "Declared bfloat16 safetensors inputs with explicit float32 normalization/position arithmetic; physical layout/loading/conversion remain G28/G23."
+    },
+    {
+      "id": "qwen3.last_position_yes_no.v1",
+      "semantics": "Select last nonpadding position logits for pinned yes9693/no2152, subtract no from yes and normalize the two-label score; no text generation. Probability is uncalibrated relevance, not a permission or measured task success."
+    },
+    {
+      "id": "decision.complete_choice_micros.v1",
+      "semantics": "Convert finite bounded score to integer probability micros using half-even; require all candidate scores, floor750000/margin100000, exact ties abstain; no action authority. Choice is per question and reset per pair."
+    }
+  ],
+  "reference_commit": "0720e206c6ba28887e4d60ef60a6a089f6c1cc76",
+  "reference_files_sha256": {
+    "modeling_qwen3.py": "704c914530530a1acb0b443add1f520404e3ac2c28c0ab7e16f80f86cfe8ccb2",
+    "modeling_rope_utils.py": "c28b3e88edca8fdb5497e5c36091bf753db49bd94ace33a84e9f9c61cbf66032"
+  },
+  "reference_repository": "https://github.com/huggingface/transformers",
+  "reference_scope": "Existing pinned Qwen3 backbone reference/config audit only; source config labels Transformers4.51.3, no package installed or reference code executed. Actual numerical/head/tokenizer/quality gates later.",
+  "scoring_reference": {
+    "kind": "read_only_publisher_head_semantics; synthetic numeric oracle independent; model outputs not reproduced",
+    "readme_sha256": "5bba8c734f6dd3ae48317b4139317e45a7fce48fc55e15670b23a0dd15492ab6",
+    "source_commit": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+    "source_repository": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B"
+  },
+  "source_model_commit": "e61197ed45024b0ed8a2d74b80b4d909f1255473"
+}
