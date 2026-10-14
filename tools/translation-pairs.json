@@ -5,32 +5,32 @@
     {
       "en": "README.md",
       "tr": "README.tr.md",
-      "en_sha256": "bfb3bca0d7d87ff4e8b1021520a3768704882e87efc91f7c7d4f2c665073ead5",
-      "tr_sha256": "a16999d2685975380b09a096d93ad96ed8b98bc60958592bea1e24223834679d"
+      "en_sha256": "25150968b4327883ac0ead740204a22fddb36b1e8b04a3cb30687a6fe7e7487b",
+      "tr_sha256": "e86c3d878c404ef34733e231a0ccd757c893f5c73758479797a390d712d6f487"
     },
     {
       "en": "CONTRIBUTING.md",
       "tr": "CONTRIBUTING.tr.md",
-      "en_sha256": "71b8230ed5513e2e699be8e378afcb634a590e97406d43b4bcc96448ab5e525d",
-      "tr_sha256": "0d41128daf2a1775b5114e995ab288dfc815152b2d13bbc36ef653553c9c44c5"
+      "en_sha256": "f38f5ecbb053351af61e929724955d6a071ac4ce5d8d0fea78de2a32e9dfdfba",
+      "tr_sha256": "cd12bcc76595836e84cfa7b2081a08dc9668e8ea558c51496bbc99fefd8bb6b0"
     },
     {
       "en": "docs/en/model-catalog.md",
       "tr": "docs/tr/model-catalog.md",
-      "en_sha256": "cf877cfb9dec2017813d26fb7f9590a59bf44836b4659e0fc95f5dc4ff7fc77d",
-      "tr_sha256": "f1758b47f4fc87a807974ae4c16c282fa4e711a8fb4626949a695ad38579f4b2"
+      "en_sha256": "e9d01fbb1c21470756923e03ca7992d2ba9721e9d10f8083ce630e17156c5f18",
+      "tr_sha256": "845cfa4901129c3cc0c4a7e172782ed35181057e3ccc98bc3135404b8f2dfe60"
     },
     {
       "en": "docs/en/decision-score-profile.md",
       "tr": "docs/tr/decision-score-profile.md",
-      "en_sha256": "24d43b7e88627edf38cd2a0a4baa9cc224063d363ba768ea29c37000f6166457",
-      "tr_sha256": "76e6b340139ade8c9d6d9c52d52e3c37ddf53b424eb9985e9e626f36f6d6f99a"
+      "en_sha256": "06051c3db66daf38ece8b5de25d2ab7193269bc59614a2ce7b2a9c11066b83c7",
+      "tr_sha256": "9ce353279bd087d8022670ad3ce8bf7fa112d69d8046e22faade13d8b1a7e0e5"
     },
     {
       "en": "docs/en/embedding-profile.md",
       "tr": "docs/tr/embedding-profile.md",
-      "en_sha256": "0e96c2894210ecec3474b7b36fb6cc72670da7f6cb745628f28928bc30e02ef4",
-      "tr_sha256": "c90056c3f1ae356ca5503477348063c3d6eb785469160338c9673a05ff7d7a5d"
+      "en_sha256": "41d870e697cdca1b597469be6b9754a40f787d149e4f0fbe955180fdf11305ff",
+      "tr_sha256": "4a19eb9ff0d9c4601866cf1556e0cb5f51d0f0e26ffcf0105fa095ad3d60c99d"
     }
   ],
   "documents": []
