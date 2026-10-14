@@ -19,3 +19,5 @@ Before implementation, open a scoped task with input/output contracts, an exact 
 Use [CONTRIBUTING](CONTRIBUTING.md) and [AGENTS](AGENTS.md). Keep private data, credentials, operational records and model weights outside Git. Public artifacts need their own approved storage, provenance and license decision; no store or service is provisioned here. First-party source and documentation are licensed under [Apache-2.0](LICENSE). Separately identified third-party material, model weights and datasets retain their own terms.
 
 G56 adds the [declared decision-score candidate and synthetic reference](docs/en/decision-score-profile.md); owned Rust decodes its metadata, native scoring/model quality remains unsupported/not_run.
+
+G67 adds a [declared embedding profile](docs/en/embedding-profile.md), independent synthetic pooling/L2/retrieval references and real core EYL fixture tests. Native model/Turkish-quality execution remains not_run under G68.

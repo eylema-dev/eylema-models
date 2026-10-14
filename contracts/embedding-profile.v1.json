@@ -1,0 +1,68 @@
+{
+  "authority": "none; representation/prefix/embedding/reference never grants execute/access/collect/train/disclose/export rights",
+  "format": "embedding-profile.v1",
+  "interface": {
+    "action_semantics": "representation-only.v1",
+    "input_schema": "representation.query-document.v1",
+    "input_units": "utf8-text.v1",
+    "output_schema": "representation.embedding-vector.v1",
+    "output_units": "l2-vector-1024.v1",
+    "preprocessing": "eylema.qwen3-embedding-text.v1",
+    "role": "representation",
+    "state_reset": "reset-per-text.v1",
+    "version": 1
+  },
+  "limits": {
+    "batch_size": 1,
+    "context_limit": 4096,
+    "dev_rendered_utf8_bytes": 16384,
+    "identifier_bytes": 64,
+    "max_documents": 4,
+    "max_pairs": 16,
+    "max_queries": 4,
+    "reference_abs_scalar": "1000000",
+    "reference_dimensions": 1024,
+    "reference_head_dimensions": 4,
+    "reference_positions": 4
+  },
+  "local_support": "unsupported; declared intent only",
+  "model_id": "qwen3-embedding-0.6b",
+  "norm": {
+    "dimension": 1024,
+    "epsilon": "0.000000000001",
+    "finite_only": true,
+    "kind": "l2",
+    "zero_or_epsilon_norm": "reject; stricter profile failure policy than publisher normalizer clamping"
+  },
+  "pooling": {
+    "dimension": 1024,
+    "include_prompt": true,
+    "missing_valid_position": "reject",
+    "mode": "last_valid_token",
+    "noncontiguous_mask": "reject",
+    "source_component": "pooling-config.json",
+    "source_path": "1_Pooling/config.json"
+  },
+  "preprocessing": {
+    "control_markers": "reject reserved <|...|> tokens and NUL/control inputs; content never instructions for host",
+    "document_mode": "document",
+    "document_prefix": "",
+    "ownership": "publisher_fixed_prefix_pinned_by_sentence_config; first_party_literal_UTF8_renderer_for_development_only",
+    "padding": "contiguous left or right nonpadding region; binary mask; at least one valid position",
+    "prefix_sha256": "9fab7feb99edb69f560d85cf1bb849dd556c37f383d0336574f78f1303e90740",
+    "query_mode": "query",
+    "query_prefix": "Instruct: Given a web search query, retrieve relevant passages that answer the query\nQuery:",
+    "source_component": "config_sentence_transformers.json",
+    "special_tokens": "Full tokenizer.json postprocessing advertised only; token/EOS behavior requires later tokenizer execution and exact acceptance. Config eos and tokenizer eos declarations differ; do not infer matching behavior.",
+    "truncation": "reject full tokenized query-prefix/text/special-token length over4096; token counting/tokenization not_run"
+  },
+  "retrieval_reference": {
+    "quality": "synthetic hidden states only, not actual model output or EN/TR retrieval quality",
+    "rounding": "half_even",
+    "score_scale": 1000000,
+    "similarity": "dot_of_l2_unit_vectors_equivalent_cosine",
+    "ties": "same rounded score grouped; ASCII document-id order within group; no forced single choice"
+  },
+  "source_commit": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+  "source_repository": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B"
+}
