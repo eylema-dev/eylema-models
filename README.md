@@ -1,4 +1,6 @@
-# eylema-models
+# Eyleme model catalog
+
+**Name update — 14 October 2026:** The product is **Eyleme** (formerly Eylema); the companion product is **Derleme** (formerly Derlema), and **Onama** keeps its name. The GitHub organization is now `eyleme-dev` (formerly `eylema-dev`). The main repository is now `eyleme-dev/eyleme`. Auxiliary repository basenames, domains, commands, crate/package names, environment variables, data paths and protocol/schema identifiers retain their current spelling for compatibility. Historical evidence preserves its original names and URLs.
 
 Model metadata and accepted model-set manifests. [Türkçe](README.tr.md).
 
@@ -8,9 +10,9 @@ Model metadata and accepted model-set manifests. [Türkçe](README.tr.md).
 
 ## Scope
 
-Catalog source revisions, hashes, licenses, operator requirements and evaluation references. Keep the canonical model-set schema in eylema until a separately versioned contract is justified. Metadata registration is not execution or acceptance.
+Catalog source revisions, hashes, licenses, operator requirements and evaluation references. Keep the canonical model-set schema in the Eyleme core repository until a separately versioned contract is justified. Metadata registration is not execution or acceptance.
 
-Production Rust code, shared types, runtime/model execution and the CLI stay in [eylema](https://github.com/eylema-dev/eylema); product contracts live in [English docs](https://github.com/eylema-dev/eylema-docs-en) and [Turkish docs](https://github.com/eylema-dev/eylema-docs-tr). [The repository map](https://github.com/eylema-dev/devguide/blob/main/docs/en/repository-map.md) defines the boundaries.
+Production Rust code, shared types, runtime/model execution and the CLI stay in [Eyleme](https://github.com/eyleme-dev/eyleme); product contracts live in [English docs](https://github.com/eyleme-dev/eylema-docs-en) and [Turkish docs](https://github.com/eyleme-dev/eylema-docs-tr). [The repository map](https://github.com/eyleme-dev/devguide/blob/main/docs/en/repository-map.md) defines the boundaries.
 
 ## First acceptance gate
 
