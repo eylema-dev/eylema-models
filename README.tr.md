@@ -2,7 +2,9 @@
 
 Model üstverisi ve kabul edilmiş model kümesi manifestleri. [English](README.md).
 
-**Durum: yalnızca depo iskeleti.** Bu kurulum uygulama, kıyaslama sonucu, katalog girdisi, eğitilmiş model veya eğitim koşusu sunmaz.
+**Durum: offline geliştirme denetimiyle sabit G27 aday kataloğu ve dokuz isteğe bağlı rol arayüzü kaydı.** Gerçek üretim Rust manifest kontrolleri core içindedir; ağırlık, tokenizer/model yürütmesi, kıyaslama veya eğitilmiş model sunulmaz.
+
+[Katalog/sözleşme notları](docs/tr/model-catalog.md) · [Qwen adayı](catalog/qwen3-0.6b.v1.json) · [Rol arayüzleri](contracts/role-interfaces.v1.json). `python tools/model_catalog.py --check`, bildirilen JSON/EYL/kaynak/rol/operator tutarlılığını denetler; inference değil geliştirme aracıdır.
 
 ## Kapsam
 

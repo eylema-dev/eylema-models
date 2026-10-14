@@ -2,7 +2,9 @@
 
 Model metadata and accepted model-set manifests. [Türkçe](README.tr.md).
 
-**Status: repository scaffold only.** No application, benchmark, catalog entry, trained model or training run is delivered by this setup.
+**Status: pinned G27 candidate catalog and nine optional role-interface records, with an offline development audit.** Actual production Rust manifest checks live in core; no weights, tokenizer/model execution, benchmark or trained model is delivered.
+
+[Catalog/contract notes](docs/en/model-catalog.md) · [Qwen candidate](catalog/qwen3-0.6b.v1.json) · [Role interfaces](contracts/role-interfaces.v1.json). `python tools/model_catalog.py --check` checks declared JSON/EYL/source/role/operator consistency; it is development tooling, not inference.
 
 ## Scope
 

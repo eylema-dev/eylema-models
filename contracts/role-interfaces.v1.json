@@ -1,0 +1,163 @@
+{
+  "authority": "none; interfaces are intent, never model acceptance or permissions",
+  "format": "role-interfaces.v1",
+  "roles": [
+    {
+      "default_assignment": null,
+      "domains": [
+        "stt",
+        "vision"
+      ],
+      "interface": {
+        "action_semantics": "proposal-only.v1",
+        "input_schema": "sensory.observation.v1",
+        "input_units": "profiled-channels.v1",
+        "output_schema": "observed.features.v1",
+        "output_units": "schema-defined.v1",
+        "preprocessing": "profile-required.v1",
+        "role": "perception",
+        "state_reset": "reset-between-steps.v1",
+        "version": 1
+      }
+    },
+    {
+      "default_assignment": null,
+      "domains": [
+        "text.reasoning"
+      ],
+      "interface": {
+        "action_semantics": "proposal-only.v1",
+        "input_schema": "text.messages.v1",
+        "input_units": "utf8.v1",
+        "output_schema": "reasoning.summary.v1",
+        "output_units": "utf8.v1",
+        "preprocessing": "qwen3.template.v1",
+        "role": "reasoning",
+        "state_reset": "reset-between-steps.v1",
+        "version": 1
+      }
+    },
+    {
+      "default_assignment": null,
+      "domains": [
+        "text.planning"
+      ],
+      "interface": {
+        "action_semantics": "proposal-only.v1",
+        "input_schema": "text.messages.v1",
+        "input_units": "utf8.v1",
+        "output_schema": "plan.proposal.v1",
+        "output_units": "utf8.v1",
+        "preprocessing": "qwen3.template.v1",
+        "role": "planning",
+        "state_reset": "reset-between-steps.v1",
+        "version": 1
+      }
+    },
+    {
+      "default_assignment": null,
+      "domains": [
+        "structured-ranking"
+      ],
+      "interface": {
+        "action_semantics": "proposal-only.v1",
+        "input_schema": "alternatives.v1",
+        "input_units": "declared-units.v1",
+        "output_schema": "choice.proposal.v1",
+        "output_units": "declared-units.v1",
+        "preprocessing": "profile-required.v1",
+        "role": "decision",
+        "state_reset": "reset-between-steps.v1",
+        "version": 1
+      }
+    },
+    {
+      "default_assignment": null,
+      "domains": [
+        "task-policy"
+      ],
+      "interface": {
+        "action_semantics": "proposal-only.v1",
+        "input_schema": "state.observation.v1",
+        "input_units": "declared-units.v1",
+        "output_schema": "action.proposal.v1",
+        "output_units": "declared-units.v1",
+        "preprocessing": "profile-required.v1",
+        "role": "policy",
+        "state_reset": "reset-between-steps.v1",
+        "version": 1
+      }
+    },
+    {
+      "default_assignment": null,
+      "domains": [
+        "dynamics",
+        "generative-world"
+      ],
+      "interface": {
+        "action_semantics": "proposal-only.v1",
+        "input_schema": "state.history.v1",
+        "input_units": "declared-units.v1",
+        "output_schema": "predicted.state.v1",
+        "output_units": "declared-units.v1",
+        "preprocessing": "profile-required.v1",
+        "role": "world_model",
+        "state_reset": "reset-between-steps.v1",
+        "version": 1
+      }
+    },
+    {
+      "default_assignment": null,
+      "domains": [
+        "text.domain",
+        "tts"
+      ],
+      "interface": {
+        "action_semantics": "proposal-only.v1",
+        "input_schema": "text.messages.v1",
+        "input_units": "utf8.v1",
+        "output_schema": "domain.result.v1",
+        "output_units": "schema-defined.v1",
+        "preprocessing": "qwen3.template.v1",
+        "role": "specialist",
+        "state_reset": "reset-between-steps.v1",
+        "version": 1
+      }
+    },
+    {
+      "default_assignment": null,
+      "domains": [
+        "text.verification"
+      ],
+      "interface": {
+        "action_semantics": "proposal-only.v1",
+        "input_schema": "candidate.evidence.v1",
+        "input_units": "declared-units.v1",
+        "output_schema": "evaluation.proposal.v1",
+        "output_units": "declared-units.v1",
+        "preprocessing": "profile-required.v1",
+        "role": "critic",
+        "state_reset": "reset-between-steps.v1",
+        "version": 1
+      }
+    },
+    {
+      "default_assignment": null,
+      "domains": [
+        "embedding",
+        "reranking"
+      ],
+      "interface": {
+        "action_semantics": "proposal-only.v1",
+        "input_schema": "representation.input.v1",
+        "input_units": "profiled-channels.v1",
+        "output_schema": "representation.output.v1",
+        "output_units": "declared-units.v1",
+        "preprocessing": "profile-required.v1",
+        "role": "representation",
+        "state_reset": "reset-between-steps.v1",
+        "version": 1
+      }
+    }
+  ]
+}
