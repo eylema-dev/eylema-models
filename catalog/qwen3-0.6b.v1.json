@@ -1,8 +1,8 @@
 {
   "evidence": {
     "artifact_verification": "Large weight/tokenizer.json hashes are publisher advertised only; source/config/license/template and owned-contract bytes measured. No model execution/quality accepted.",
-    "core_contract_module_sha256": "59b7def83231e46df9a7cabe0dc9b63f3708c8a4b40dc58a668c54906cee364b",
-    "core_contract_revision": "8aca56aecb551b4dab475e7f4c2c4abd77a8a2a4",
+    "core_contract_module_sha256": "7249070555c0fa72fcd2bd509574636f4295b67396c6cb22bd5409787ed6783e",
+    "core_contract_revision": "430e40da66f8715e7d25d709158c9292231d98aa",
     "fallback": "fail",
     "local_support": "unsupported",
     "owned_contract_components": [
