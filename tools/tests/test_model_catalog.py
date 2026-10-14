@@ -73,9 +73,39 @@ class CatalogTests(unittest.TestCase):
             self.check()
 
 class DuplicateJsonTests(unittest.TestCase):
+
     def test_duplicate_json_keys_rejected(self):
         with tempfile.TemporaryDirectory() as td:
-            p=pathlib.Path(td)/'duplicate.json'
+            p = pathlib.Path(td) / 'duplicate.json'
             p.write_text('{"accepted":false,"accepted":true}')
-            with self.assertRaisesRegex(ValueError,'duplicate JSON key'):
+            with self.assertRaisesRegex(ValueError, 'duplicate JSON key'):
                 m.load(p)
+
+class ReviewRegressionTests(unittest.TestCase):
+    setUp = CatalogTests.setUp
+
+    def test_boolean_versions_and_float_special_tokens_are_rejected(self):
+        for change in [lambda d: d['manifest'].update(revision=True), lambda d: d['manifest']['profiles'][0].update(version=True), lambda d: d['evidence']['special_tokens'].update(bos_token_id=151643.0)]:
+            cat = copy.deepcopy(self.catalog)
+            change(cat)
+            with self.assertRaises(ValueError):
+                m.validate_catalog(cat, self.roles, self.ops)
+
+    def test_paired_measured_template_digest_or_length_drift_is_rejected(self):
+        for change in [lambda d: (d['manifest']['configuration'].update(template_sha256='a' * 64), d['evidence'].update(template_sha256='a' * 64)), lambda d: d['evidence'].update(template_bytes=4169)]:
+            cat = copy.deepcopy(self.catalog)
+            change(cat)
+            with self.assertRaisesRegex(ValueError, 'template'):
+                m.validate_catalog(cat, self.roles, self.ops)
+
+    def test_native_semantic_identifier_domain_is_enforced(self):
+        import hashlib
+        roles = copy.deepcopy(self.roles)
+        cat = copy.deepcopy(self.catalog)
+        roles['roles'][1]['interface']['input_schema'] = 'invalid id with spaces'
+        cat['manifest']['profiles'][0]['input_schema'] = 'invalid id with spaces'
+        b = (json.dumps(roles, sort_keys=True, indent=2, ensure_ascii=False) + '\n').encode()
+        component = next((c for c in cat['manifest']['components'] if c['name'] == 'role-interfaces.v1.json'))
+        component.update(size=len(b), sha256=hashlib.sha256(b).hexdigest())
+        with self.assertRaisesRegex(ValueError, 'role interface'):
+            m.validate_catalog(cat, roles, self.ops)
