@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "repository": "eyleme-dev/eylema-models",
+  "repository": "eyleme-dev/eyleme-models",
   "role": "models",
   "stage": "documentation",
   "tooling_version": "0.3.0",
