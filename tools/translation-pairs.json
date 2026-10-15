@@ -5,8 +5,8 @@
     {
       "en": "README.md",
       "tr": "README.tr.md",
-      "en_sha256": "25150968b4327883ac0ead740204a22fddb36b1e8b04a3cb30687a6fe7e7487b",
-      "tr_sha256": "e86c3d878c404ef34733e231a0ccd757c893f5c73758479797a390d712d6f487"
+      "en_sha256": "7f6bfcce8de4aada8206461385abc9147b9673b94b8cffc0650ba139b9729504",
+      "tr_sha256": "1e40c39862b7034199e4cd3db0307b9ce7e47c3a9eae0e954e991d5d725129f7"
     },
     {
       "en": "CONTRIBUTING.md",
@@ -17,8 +17,8 @@
     {
       "en": "docs/en/model-catalog.md",
       "tr": "docs/tr/model-catalog.md",
-      "en_sha256": "e9d01fbb1c21470756923e03ca7992d2ba9721e9d10f8083ce630e17156c5f18",
-      "tr_sha256": "845cfa4901129c3cc0c4a7e172782ed35181057e3ccc98bc3135404b8f2dfe60"
+      "en_sha256": "74015e771c79bdd72b2c87188494f2b6a6105265a758a7285cd42ee9a126c8e5",
+      "tr_sha256": "47b6d61945059bfb689d5f8f672dbba8d844dbac387c5eee6546cc5ded40f0c7"
     },
     {
       "en": "docs/en/decision-score-profile.md",
