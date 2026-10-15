@@ -5,14 +5,14 @@
     {
       "en": "README.md",
       "tr": "README.tr.md",
-      "en_sha256": "7f6bfcce8de4aada8206461385abc9147b9673b94b8cffc0650ba139b9729504",
-      "tr_sha256": "1e40c39862b7034199e4cd3db0307b9ce7e47c3a9eae0e954e991d5d725129f7"
+      "en_sha256": "0af9de4e3ade475e9cdb52f450664a3cabfbe5fed35c048b6892d7f24649d66b",
+      "tr_sha256": "a172c1e62f6aa5ffe6dc993204f7d6d50fe4e727ee0b48f0573735ad8a4dcf0b"
     },
     {
       "en": "CONTRIBUTING.md",
       "tr": "CONTRIBUTING.tr.md",
-      "en_sha256": "f38f5ecbb053351af61e929724955d6a071ac4ce5d8d0fea78de2a32e9dfdfba",
-      "tr_sha256": "cd12bcc76595836e84cfa7b2081a08dc9668e8ea558c51496bbc99fefd8bb6b0"
+      "en_sha256": "a59ad646688f4f1749d5a28526e3c4b76ae3c3ab807d97ff9d43188f09ce9edc",
+      "tr_sha256": "f5b661d2bb233359128bd02041a1b1ebb6b5143b5397371d2351a2799e85f066"
     },
     {
       "en": "docs/en/model-catalog.md",
