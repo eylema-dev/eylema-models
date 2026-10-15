@@ -31,6 +31,12 @@
       "tr": "docs/tr/embedding-profile.md",
       "en_sha256": "41d870e697cdca1b597469be6b9754a40f787d149e4f0fbe955180fdf11305ff",
       "tr_sha256": "4a19eb9ff0d9c4601866cf1556e0cb5f51d0f0e26ffcf0105fa095ad3d60c99d"
+    },
+    {
+      "en": "docs/en/g30-cpu-profile.md",
+      "tr": "docs/tr/g30-cpu-profile.md",
+      "en_sha256": "04790418d72055f56d16535011a34015f5d46e5057ee867a1c85f148c51e747d",
+      "tr_sha256": "21a45b7440f7f1999f176bb60a71400a1bc0d87dcf2660566e5dc8729c88a134"
     }
   ],
   "documents": []
