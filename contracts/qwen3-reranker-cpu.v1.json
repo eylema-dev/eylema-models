@@ -1,0 +1,104 @@
+{
+  "format": "qwen3-reranker-cpu.v1",
+  "parent_manifest_sha256": "076c625c334ee9e2619fcb6016acc2314a51288a9a22baa6dde4029962a87da2",
+  "computation": "owned ascending F32 backbone; exact BF16 widening; F64 stable scalar head; no generation",
+  "head": {
+    "yes": 9693,
+    "no": 2152,
+    "position": "last_nonpadding",
+    "rounding": "half_even",
+    "scale": 1000000,
+    "floor": 750000,
+    "margin": 100000
+  },
+  "shape": {
+    "attention_heads": 16,
+    "context_capacity": 40960,
+    "head_dim": 128,
+    "hidden_size": 1024,
+    "intermediate_size": 3072,
+    "kv_heads": 8,
+    "layers": 28,
+    "vocab_size": 151669
+  },
+  "operators": [
+    {
+      "id": "qwen3.embedding_gather.v1",
+      "semantics": "Integer token IDs select rows from the tied embedding table; reject IDs outside vocabulary."
+    },
+    {
+      "id": "qwen3.linear_no_bias.v1",
+      "semantics": "Q/K/V/O, gate/up/down and tied-logits projections use explicitly shaped matrix multiplication without bias."
+    },
+    {
+      "id": "qwen3.rmsnorm_fp32.v1",
+      "semantics": "Accumulate mean squared activations and reciprocal square root with epsilon1e-6 in float32; restore input dtype before learned scale. Q/K normalization is per head."
+    },
+    {
+      "id": "qwen3.silu.v1",
+      "semantics": "Elementwise x times sigmoid(x)."
+    },
+    {
+      "id": "qwen3.swiglu.v1",
+      "semantics": "Multiply activated gate projection by the independent up projection, then down-project."
+    },
+    {
+      "id": "qwen3.residual_add.v1",
+      "semantics": "Add attention output and MLP output to their respective retained residuals."
+    },
+    {
+      "id": "qwen3.rope_default.v1",
+      "semantics": "Use theta1000000 default inverse frequencies, float32 positions/frequency product, cosine/sine and split-half rotation; no scaled/dynamic RoPE profile."
+    },
+    {
+      "id": "qwen3.reshape_transpose.v1",
+      "semantics": "Preserve named batch, token, head and head-dimension axes; Q projection width2048, KV projection width1024."
+    },
+    {
+      "id": "qwen3.grouped_kv_repeat.v1",
+      "semantics": "Repeat each of8KV heads for its2query heads; preserve token order."
+    },
+    {
+      "id": "qwen3.causal_mask.v1",
+      "semantics": "Mask future positions before normalization; no sliding-window profile, batch1/single unpadded sequence."
+    },
+    {
+      "id": "qwen3.scaled_attention.v1",
+      "semantics": "Multiply Q by transposed K and scale by inverse sqrt(head_dim128); multiply normalized probabilities by V."
+    },
+    {
+      "id": "qwen3.softmax_fp32.v1",
+      "semantics": "Normalize attention scores in float32 along the key-token axis and cast probabilities to query dtype."
+    },
+    {
+      "id": "qwen3.kv_cache_append.v1",
+      "semantics": "Append positional K/V for one sequence; reset on model/role/step changes, no implicit state transfer."
+    },
+    {
+      "id": "qwen3.tied_logits.v1",
+      "semantics": "Project final normalized hidden states with transposed input embedding weights; tie_word_embeddings=true."
+    },
+    {
+      "id": "qwen3.dtype_and_layout.v1",
+      "semantics": "Declared bfloat16 safetensors inputs with explicit float32 normalization/position arithmetic; physical layout/loading/conversion remain G28/G23."
+    },
+    {
+      "id": "qwen3.last_position_yes_no.v1",
+      "semantics": "Select last nonpadding position logits for pinned yes9693/no2152, subtract no from yes and normalize the two-label score; no text generation. Probability is uncalibrated relevance, not a permission or measured task success."
+    },
+    {
+      "id": "decision.complete_choice_micros.v1",
+      "semantics": "Convert finite bounded score to integer probability micros using half-even; require all candidate scores, floor750000/margin100000, exact ties abstain; no action authority. Choice is per question and reset per pair."
+    }
+  ],
+  "limits": {
+    "context": 4096,
+    "questions": 4,
+    "options": 4,
+    "pairs": 16,
+    "logical_bytes": 2684354560,
+    "work": 200000000000000,
+    "deadline_seconds": 600
+  },
+  "authority": "none; typed proposals only"
+}
