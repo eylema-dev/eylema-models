@@ -1,0 +1,197 @@
+{
+  "manifest": {
+    "architecture": "qwen3-dense.v1",
+    "artifact_format": "safetensors.v1",
+    "components": [
+      {
+        "digest_source": "audit_measured_small_bytes",
+        "name": "config.json",
+        "sha256": "d479c427a9ca5295218063d4f9aca4f297ab4ac27487cca7af42c84643d51ef0",
+        "size": 727
+      },
+      {
+        "digest_source": "audit_measured_small_bytes",
+        "name": "README.md",
+        "sha256": "5bba8c734f6dd3ae48317b4139317e45a7fce48fc55e15670b23a0dd15492ab6",
+        "size": 14742
+      },
+      {
+        "digest_source": "audit_measured_small_bytes",
+        "name": "tokenizer_config.json",
+        "sha256": "253153d0738ceb4c668d2eff957714dd2bea0b56de772a9fdccd96cbf517e6a0",
+        "size": 9706
+      },
+      {
+        "digest_source": "audit_measured_small_bytes",
+        "name": "vocab.json",
+        "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+        "size": 2776833
+      },
+      {
+        "digest_source": "publisher_advertised",
+        "name": "model.safetensors",
+        "sha256": "27cd75a405b9c1b46b59abfd88aaa209e6fed2a1972cde9b70e7659537c5e65b",
+        "size": 1191588280
+      },
+      {
+        "digest_source": "publisher_advertised",
+        "name": "tokenizer.json",
+        "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+        "size": 11422654
+      },
+      {
+        "digest_source": "audit_measured_small_bytes",
+        "name": "decision-score.v1.json",
+        "sha256": "4b0991f34f552dac9c695675d625ba575efbd2d787623cacfa9dacc8461c5250",
+        "size": 2726
+      },
+      {
+        "digest_source": "audit_measured_small_bytes",
+        "name": "qwen3-reranker-operators.v1.json",
+        "sha256": "7b3ab7d55b1159ee368b07dc954c5bc0b0ac63c0755e774236bee853fec2a802",
+        "size": 4868
+      },
+      {
+        "digest_source": "audit_measured_small_bytes",
+        "name": "decision-score-reference.v1.json",
+        "sha256": "64b3b13cf1f5395eb080671461a1ecaa3b3df1c4509afe0798e2b18a61438f2c",
+        "size": 7370
+      },
+      {
+        "name": "qwen3-reranker-cpu.v1.json",
+        "size": 4122,
+        "sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19",
+        "digest_source": "audit_measured_small_bytes"
+      }
+    ],
+    "configuration": {
+      "batch_size": 1,
+      "config_component": "config.json",
+      "context_limit": 4096,
+      "dimensions": {
+        "attention_heads": 16,
+        "context_capacity": 40960,
+        "head_dim": 128,
+        "hidden_size": 1024,
+        "intermediate_size": 3072,
+        "kv_heads": 8,
+        "layers": 28,
+        "vocab_size": 151669
+      },
+      "max_new_tokens": 1,
+      "operators_component": "qwen3-reranker-cpu.v1.json",
+      "preprocessing_component": "decision-score.v1.json",
+      "template_sha256": "c91af212ad3548b6a9f87c8b54901bb171e2f596e7d61f666634e44fc690a637",
+      "tokenizer_component": "tokenizer.json",
+      "tokenizer_config_component": "tokenizer_config.json",
+      "weights_component": "model.safetensors"
+    },
+    "format": "model-profile.v1",
+    "id": "qwen3-reranker-0.6b.cpu",
+    "numeric_format": "bfloat16",
+    "operators": [
+      {
+        "id": "qwen3.embedding_gather.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.linear_no_bias.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.rmsnorm_fp32.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.silu.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.swiglu.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.residual_add.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.rope_default.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.reshape_transpose.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.grouped_kv_repeat.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.causal_mask.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.scaled_attention.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.softmax_fp32.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.kv_cache_append.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.tied_logits.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.dtype_and_layout.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "qwen3.last_position_yes_no.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      },
+      {
+        "id": "decision.complete_choice_micros.v1",
+        "spec_sha256": "7095d20728a1474f6fffffb1e524dfde52e192db2ce921bc62204c772dbb3a19"
+      }
+    ],
+    "profiles": [
+      {
+        "action_semantics": "proposal-only.v1",
+        "input_schema": "decision.query-options.v1",
+        "input_units": "utf8-pair.v1",
+        "output_schema": "decision.score-choice.v1",
+        "output_units": "uncalibrated-score-micros.v1",
+        "preprocessing": "eylema.reranker-pair.v1",
+        "role": "decision",
+        "state_reset": "reset-per-pair.v1",
+        "version": 1
+      }
+    ],
+    "quantization": "none",
+    "revision": 1,
+    "rights": {
+      "license_component": "README.md",
+      "license_id": "Apache-2.0",
+      "publisher": "Qwen",
+      "source_commit": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+      "source_repository": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B",
+      "status": "publisher_terms_pinned"
+    },
+    "source_commit": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+    "source_repository": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B"
+  },
+  "evidence": {
+    "parent_manifest_sha256": "076c625c334ee9e2619fcb6016acc2314a51288a9a22baa6dde4029962a87da2",
+    "cpu_acceptance": "not_run",
+    "weights_downloaded": false,
+    "stored_format": "BF16",
+    "backbone_computation": "F32",
+    "scalar_head_computation": "F64",
+    "authority": "none; actual numerical/quality/native admission requires G57"
+  }
+}
