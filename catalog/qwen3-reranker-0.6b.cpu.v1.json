@@ -187,11 +187,11 @@
   },
   "evidence": {
     "parent_manifest_sha256": "076c625c334ee9e2619fcb6016acc2314a51288a9a22baa6dde4029962a87da2",
-    "cpu_acceptance": "not_run",
-    "weights_downloaded": false,
+    "cpu_acceptance": "passed_limited_fixed_smoke",
+    "weights_downloaded": true,
     "stored_format": "BF16",
     "backbone_computation": "F32",
     "scalar_head_computation": "F64",
-    "authority": "none; actual numerical/quality/native admission requires G57"
+    "authority": "none; only the pinned G57 artifact and fixed smoke acceptance were measured; no calibrated quality or action authority"
   }
 }

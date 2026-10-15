@@ -23,8 +23,8 @@
     {
       "en": "docs/en/decision-score-profile.md",
       "tr": "docs/tr/decision-score-profile.md",
-      "en_sha256": "06051c3db66daf38ece8b5de25d2ab7193269bc59614a2ce7b2a9c11066b83c7",
-      "tr_sha256": "9ce353279bd087d8022670ad3ce8bf7fa112d69d8046e22faade13d8b1a7e0e5"
+      "en_sha256": "b9ed2667e8e28c5c8b33e47b06de8e5e6e95cd80c29dbf1a2815d999dffedfb8",
+      "tr_sha256": "ac53ce21d2d6be2cea56a482241c4e98af0e8ee69f166fc9400b7c421454bea2"
     },
     {
       "en": "docs/en/embedding-profile.md",
@@ -41,8 +41,8 @@
     {
       "en": "docs/en/g57-cpu-profile.md",
       "tr": "docs/tr/g57-cpu-profile.md",
-      "en_sha256": "f49b2fe5a06fb58058ed80241dd876359713d856e3c72eb6df84daffc3fffb91",
-      "tr_sha256": "8728f1f73a0e79768f1d83011f6cc5b22dc9fd699173b24fc45d5da6299dfe14"
+      "en_sha256": "87024eddf749eb36b39564f154bb0e07c45a190af8273a6b8de350d17ee9628d",
+      "tr_sha256": "c4f54e13e99b9781c3a8f4def907b80d453ef7d5dcc2fdb44b09ec36728e1ba2"
     }
   ],
   "documents": []
